@@ -302,7 +302,7 @@ describe("stack", function()
 		assert(typeof(res.stack) == "string", "stack should be defined")
 		local expectedMessage = "Error: new message\n"
 		local expectedStack = (
-			"LoadedCode%.LuauPolyfillTestModel%.Packages%._Workspace%.LuauPolyfill%-%d%.%d%.%d%.LuauPolyfill%.Error%.__tests__%.Error%.spec:"
+			"ReplicatedStorage%.node_modules%.@jsdotlua%.luau%-polyfill%.Error%.__tests__%.Error%.spec:"
 			.. lineNumber
 			.. " function createError"
 		)
@@ -321,7 +321,7 @@ describe("stack", function()
 		assert(typeof(res.stack) == "string", "stack should be defined")
 		local expectedMessage = "Error: initial message\n"
 		local expectedStack = (
-			"LoadedCode%.LuauPolyfillTestModel%.Packages%._Workspace%.LuauPolyfill%-%d%.%d%.%d%.LuauPolyfill%.Error%.__tests__%.Error%.spec:"
+			"ReplicatedStorage%.node_modules%.@jsdotlua%.luau%-polyfill%.Error%.__tests__%.Error%.spec:"
 			.. lineNumber
 			.. " function createError"
 		)
@@ -349,7 +349,7 @@ describe("name", function()
 		assert(typeof(res.stack) == "string", "stack should be defined")
 		local expectedMessage = "MyCustomError: initial message\n"
 		local expectedStack = (
-			"LoadedCode%.LuauPolyfillTestModel%.Packages%._Workspace%.LuauPolyfill%-%d%.%d%.%d%.LuauPolyfill%.Error%.__tests__%.Error%.spec:"
+			"ReplicatedStorage%.node_modules%.@jsdotlua%.luau%-polyfill%.Error%.__tests__%.Error%.spec:"
 			.. lineNumber
 			.. " function createError"
 		)
@@ -368,7 +368,7 @@ describe("name", function()
 		assert(typeof(res.stack) == "string", "stack should be defined")
 		local expectedMessage = "Error: initial message\n"
 		local expectedStack = (
-			"LoadedCode%.LuauPolyfillTestModel%.Packages%._Workspace%.LuauPolyfill%-%d%.%d%.%d%.LuauPolyfill%.Error%.__tests__%.Error%.spec:"
+			"ReplicatedStorage%.node_modules%.@jsdotlua%.luau%-polyfill%.Error%.__tests__%.Error%.spec:"
 			.. lineNumber
 			.. " function createError"
 		)
@@ -396,7 +396,7 @@ describe("__recalculateStacktrace", function()
 		assert(typeof(res.stack) == "string", "stack should be defined")
 		local expectedMessage = "Error: new message\n"
 		local expectedStack = (
-			"LoadedCode%.LuauPolyfillTestModel%.Packages%._Workspace%.LuauPolyfill%-%d%.%d%.%d%.LuauPolyfill%.Error%.__tests__%.Error%.spec:"
+			"ReplicatedStorage%.node_modules%.@jsdotlua%.luau%-polyfill%.Error%.__tests__%.Error%.spec:"
 			.. lineNumber
 			.. " function createError"
 		)
@@ -414,7 +414,7 @@ describe("__recalculateStacktrace", function()
 		assert(typeof(res.stack) == "string", "stack should be defined")
 		local expectedMessage = "Error: initial message\n"
 		local expectedStack = (
-			"LoadedCode%.LuauPolyfillTestModel%.Packages%._Workspace%.LuauPolyfill%-%d%.%d%.%d%.LuauPolyfill%.Error%.__tests__%.Error%.spec:"
+			"ReplicatedStorage%.node_modules%.@jsdotlua%.luau%-polyfill%.Error%.__tests__%.Error%.spec:"
 			.. lineNumber
 			.. " function createError"
 		)

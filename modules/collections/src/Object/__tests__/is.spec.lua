@@ -33,12 +33,17 @@ it("returns true when given (nil, nil)", function()
 	jestExpect(is(nil, nil)).toEqual(true)
 end)
 
+-- use this function to make sure that darklua does not evaluate -0 to 0
+local function negate(x: number): number
+	return -x
+end
+
 it("returns false when given (0, -0)", function()
-	jestExpect(is(0, -0)).toEqual(false)
+	jestExpect(is(0, negate(0))).toEqual(false)
 end)
 
 it("returns true when given (-0, -0)", function()
-	jestExpect(is(-0, -0)).toEqual(true)
+	jestExpect(is(negate(0), negate(0))).toEqual(true)
 end)
 
 it("returns true when given (0 / 0, 0 / 0)", function()

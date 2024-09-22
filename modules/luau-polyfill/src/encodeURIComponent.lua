@@ -5,6 +5,18 @@ local String = require("@pkg/@jsdotlua/string")
 local charCodeAt = String.charCodeAt
 local Error = require("./Error")
 
+local REPLACEMENTS = {
+	["%2D"] = "-",
+	["%5F"] = "_",
+	["%2E"] = ".",
+	["%21"] = "!",
+	["%7E"] = "~",
+	["%2A"] = "*",
+	["%27"] = "'",
+	["%28"] = "(",
+	["%29"] = ")",
+}
+
 local function encodeURIComponent(value: string): string
 	local valueLength = utf8.len(value)
 	if valueLength == 0 or valueLength == nil then
@@ -25,16 +37,8 @@ local function encodeURIComponent(value: string): string
 	end
 	local encoded = HttpService:UrlEncode(value)
 	-- reverting encoded chars which are not encoded by JS
-	local result = encoded
-		:gsub("%%2D", "-")
-		:gsub("%%5F", "_")
-		:gsub("%%2E", ".")
-		:gsub("%%21", "!")
-		:gsub("%%7E", "~")
-		:gsub("%%2A", "*")
-		:gsub("%%27", "'")
-		:gsub("%%28", "(")
-		:gsub("%%29", ")")
+	local result = string.gsub(encoded, "%%[257][1789ADEF]", REPLACEMENTS)
+
 	return result
 end
 

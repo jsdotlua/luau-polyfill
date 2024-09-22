@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+* Simplify encodeURIComponent ([#6](https://github.com/jsdotlua/luau-polyfill/pull/6))
+
 ## 1.2.7
 * Remove `--!strict` annotations ([#4](https://github.com/jsdotlua/luau-polyfill/pull/4))
 

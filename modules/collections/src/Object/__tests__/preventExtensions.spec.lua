@@ -36,6 +36,7 @@ it("should preserve iteration functionality", function()
 		b = 2,
 	})
 
+	-- selene: allow(manual_table_clone)
 	local tPairsCopy = {}
 	for k, v in pairs(t) do
 		tPairsCopy[k] = v
@@ -45,6 +46,7 @@ it("should preserve iteration functionality", function()
 
 	local a = preventExtensions({ "hello", "world" })
 
+	-- selene: allow(manual_table_clone)
 	local aIpairsCopy = {}
 	for i, v in ipairs(a) do
 		aIpairsCopy[i] = v

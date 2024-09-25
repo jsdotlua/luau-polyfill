@@ -93,7 +93,9 @@ describe("inspect", function()
 		jestExpect(inspect({ a = { b = {} } })).toBe("{ a: { b: [] } }")
 		jestExpect(inspect({ a = { b = { c = 1 } } })).toBe("{ a: { b: [Object] } }")
 
+		-- selene: allow(mixed_table)
 		jestExpect(inspect({ [3.14159] = true :: any, 1, 2 } :: any)).toBe("{ 1, 2, 3.14159: true }")
+		-- selene: allow(mixed_table)
 		jestExpect(inspect({ 1, 2, [-3] = 3 } :: any)).toBe("{ 1, 2, -3: 3 }")
 
 		-- ROBLOX deviation:

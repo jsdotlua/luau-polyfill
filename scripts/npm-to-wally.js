@@ -24,6 +24,33 @@ const readPackageConfig = async (packagePath) => {
   return null;
 };
 
+const packageWallyTranslation = {
+  "luau-json": "seaofvoices/luau-json",
+  "luau-task": "seaofvoices/luau-task",
+};
+const packageWallyVersionTranslation = {
+  "seaofvoices/luau-task": { "1.0.0": "1.0.1" },
+  "seaofvoices/luau-json": { "0.1.0": "0.1.1" },
+};
+
+const getWallyDependency = (npmPackageName, specifiedVersion) => {
+  const wallyPackageName =
+    packageWallyTranslation[npmPackageName] ?? `jsdotlua/${npmPackageName}`;
+
+  if (specifiedVersion.startsWith("^")) {
+    specifiedVersion = specifiedVersion.slice(1);
+  }
+
+  if (packageWallyVersionTranslation[wallyPackageName]) {
+    if (packageWallyVersionTranslation[wallyPackageName][specifiedVersion]) {
+      specifiedVersion =
+        packageWallyVersionTranslation[wallyPackageName][specifiedVersion];
+    }
+  }
+
+  return `"${wallyPackageName}@${specifiedVersion}"`;
+};
+
 const main = async (
   packageJsonPath,
   wallyOutputPath,
@@ -83,9 +110,12 @@ const main = async (
         console.error(`unable to find version for package '${name}'`);
       }
     } else {
-      tomlLines.push(
-        `${wallyPackageName} = "jsdotlua/${name}@${specifiedVersion}"`
+      const wallyDependency = getWallyDependency(
+        dependencyName,
+        specifiedVersion
       );
+
+      tomlLines.push(`${wallyPackageName} = ${wallyDependency}`);
     }
   }
 

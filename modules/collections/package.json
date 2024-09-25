@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "@jsdotlua/es7-types": "workspace:^",
-    "@jsdotlua/instance-of": "workspace:^"
+    "@jsdotlua/instance-of": "workspace:^",
+    "luau-json": "^0.1.0"
   },
   "devDependencies": {
     "@jsdotlua/number": "workspace:^",

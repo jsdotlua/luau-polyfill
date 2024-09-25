@@ -1,6 +1,6 @@
 -- derived from these upstream sources:
 -- https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/jsutils/inspect.js
-local HttpService = game:GetService("HttpService")
+local json = require("@pkg/luau-json")
 
 local isArray = require("./Array/isArray")
 local ES7Types = require("@pkg/@jsdotlua/es7-types")
@@ -89,7 +89,7 @@ end
 function formatValue(value, seenValues, options: FormatOptions)
 	local valueType = typeof(value)
 	if valueType == "string" then
-		return HttpService:JSONEncode(value)
+		return json.encode(value)
 		-- deviation: format numbers like in JS
 	elseif valueType == "number" then
 		if value ~= value then

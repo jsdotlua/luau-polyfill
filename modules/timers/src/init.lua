@@ -1,4 +1,5 @@
 local Object = require("@pkg/@jsdotlua/collections").Object
+local task = require("@pkg/luau-task")
 
 local makeTimerImpl = require("./makeTimerImpl")
 local makeIntervalImpl = require("./makeIntervalImpl")

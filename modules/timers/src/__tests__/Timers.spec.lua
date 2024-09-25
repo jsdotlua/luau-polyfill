@@ -1,6 +1,7 @@
 local makeTimerImpl = require("../makeTimerImpl")
 local makeIntervalImpl = require("../makeIntervalImpl")
 
+local task = require("@pkg/luau-task")
 local JestGlobals = require("@pkg/@jsdotlua/jest-globals")
 local jestExpect = JestGlobals.expect
 local jest = JestGlobals.jest

@@ -29,6 +29,7 @@ __metadata:
     "@jsdotlua/es7-types": "workspace:^"
     "@jsdotlua/instance-of": "workspace:^"
     "@jsdotlua/number": "workspace:^"
+    luau-json: "npm:^0.1.0"
     npmluau: "npm:^0.1.1"
   languageName: unknown
   linkType: soft
@@ -564,6 +565,7 @@ __metadata:
   dependencies:
     "@jsdotlua/collections": "workspace:^"
     "@jsdotlua/jest-globals": "npm:^3.6.1-rc.2"
+    luau-task: "npm:^1.0.0"
     npmluau: "npm:^0.1.1"
   languageName: unknown
   linkType: soft
@@ -575,10 +577,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"luau-disk@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "luau-disk@npm:0.1.1"
+  checksum: 10c0/ee97edfe07671c3989f31b21cdef1001d845dbbc4940b41a2cb9b74e1c1bb0008c339348c595669177884ad8f0df4b6bf14ec66457854edcccb8e18fc3e9e4eb
+  languageName: node
+  linkType: hard
+
+"luau-json@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "luau-json@npm:0.1.0"
+  dependencies:
+    luau-disk: "npm:^0.1.1"
+  checksum: 10c0/5f83debb3206d85ff74c532978fdaeb85fd9299fcdd62cca45a5ec49775cc13e28b0992a850c6134f9b3eb93dfc0e1eeaa44eb81b9bb9a9d3270bf91bb60dc80
+  languageName: node
+  linkType: hard
+
 "luau-regexp@npm:^0.2.1":
   version: 0.2.1
   resolution: "luau-regexp@npm:0.2.1"
   checksum: 10c0/7badc4e6f9ab7753d77e49db3012c525fb85dff70930c806754edd86893a39c1afb1aba51aba00b2f456f72d7f02c6a8812a160646a05986bc6d1bfae6251494
+  languageName: node
+  linkType: hard
+
+"luau-task@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "luau-task@npm:1.0.0"
+  checksum: 10c0/ee81254d76d7c4fdee7571d9628bd99f37bb4fc65177f32b403af9846e8805758ba6b7cd346c86426edcf54e4d5a3c9b8bd7c1fc5e2c9cf564001701e3327265
   languageName: node
   linkType: hard
 

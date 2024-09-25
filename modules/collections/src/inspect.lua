@@ -31,7 +31,7 @@ local getObjectTag
 --[[
  * Used to print values in error messages.
  ]]
-local function inspect(value, options: InspectOptions?): string
+local function inspect(value: unknown, options: InspectOptions?): string
 	local inspectOptions: InspectOptions = options or { depth = DEFAULT_RECURSIVE_DEPTH }
 	local depth = inspectOptions.depth or DEFAULT_RECURSIVE_DEPTH
 	inspectOptions.depth = if depth >= 0 then depth else DEFAULT_RECURSIVE_DEPTH
@@ -86,7 +86,7 @@ local function getFragmentedKeys(tbl)
 	return keys, keysLength, tableLength
 end
 
-function formatValue(value, seenValues, options: FormatOptions)
+function formatValue(value: unknown, seenValues: Array<any>, options: FormatOptions)
 	local valueType = typeof(value)
 	if valueType == "string" then
 		return json.encode(value)
@@ -113,13 +113,13 @@ function formatValue(value, seenValues, options: FormatOptions)
 		-- if value == NULL then
 		-- 	return 'null'
 		-- end
-		return formatObjectValue(value, seenValues, options)
+		return formatObjectValue(value :: any, seenValues, options)
 	else
 		return tostring(value)
 	end
 end
 
-function formatObjectValue(value, previouslySeenValues, options: FormatOptions)
+function formatObjectValue(value: { [any]: any }, previouslySeenValues: Array<any>, options: FormatOptions)
 	if table.find(previouslySeenValues, value) ~= nil then
 		return "[Circular]"
 	end
@@ -127,8 +127,8 @@ function formatObjectValue(value, previouslySeenValues, options: FormatOptions)
 	local seenValues = { unpack(previouslySeenValues) }
 	table.insert(seenValues, value)
 
-	if typeof(value.toJSON) == "function" then
-		local jsonValue = value:toJSON(value)
+	if typeof((value :: any).toJSON) == "function" then
+		local jsonValue = (value :: any):toJSON(value)
 
 		if jsonValue ~= value then
 			if typeof(jsonValue) == "string" then
@@ -144,9 +144,9 @@ function formatObjectValue(value, previouslySeenValues, options: FormatOptions)
 	return formatObject(value, seenValues, options)
 end
 
-function formatObject(object, seenValues, options: FormatOptions)
+function formatObject(object: { [any]: any }, seenValues: Array<any>, options: FormatOptions)
 	local result = ""
-	local mt = getmetatable(object)
+	local mt = getmetatable(object :: any)
 	if mt and rawget(mt, "__tostring") then
 		return tostring(object)
 	end

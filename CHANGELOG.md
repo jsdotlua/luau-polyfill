@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+* Add support for [Lune](https://github.com/lune-org/lune) by removing Roblox specific APIs ([#9](https://github.com/jsdotlua/luau-polyfill/pull/9))
 * Simplify encodeURIComponent ([#6](https://github.com/jsdotlua/luau-polyfill/pull/6))
 
 ## 1.2.7
